@@ -40,7 +40,7 @@ var View = sync.OnceValue(func() *doorbellview.View {
 		Display:  display.Get(),
 		Speaker:  sound{},
 		Mic:      func() (<-chan []int16, func()) { return mic.Get().Listen("doorbell") },
-		Messages: message.Get(),
+		Messages: message.Shared(),
 		Chime:    func(c schema.Chime) { alerts.Get().RingAlarm(c, 1) },
 		Cameras:  cameras.Get(),
 		Settings: config.DoorbellSection,

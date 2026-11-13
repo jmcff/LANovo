@@ -268,7 +268,7 @@ var Get = sync.OnceValue(func() *screens.App {
 		Turned:    &sensors.Get().Turned,
 		Shell:     featureshell.Get(),
 		Screen:    screen.Get().Screen,
-		Messages:  message.Get(),
+		Messages:  message.Shared(),
 		Assistant: assistant.Get(),
 		Stage:     assistant.Stage(),
 		Timers:    timer.Get(),

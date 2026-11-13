@@ -143,7 +143,7 @@ func build() *castreceiver.Receiver {
 			},
 			Preferences: Preferences,
 			Notice: func(title, body string) {
-				message.Get().Quiet(title, body, castreceiver.NoticeFor)
+				message.Shared().Quiet(title, body, castreceiver.NoticeFor)
 			},
 		},
 	})

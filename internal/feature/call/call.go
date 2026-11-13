@@ -46,7 +46,7 @@ func Get() *sharedcall.Calls {
 				Display: display.Get(),
 				Camera:  callvideo.NewCamera(livecam.Get().Sessions()),
 			}),
-			Messages: message.Get(),
+			Messages: message.Shared(),
 			Home:     homeassistant.Get(),
 		})
 		component.Settings.Add(shared.Controls())

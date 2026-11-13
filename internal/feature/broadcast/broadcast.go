@@ -28,7 +28,7 @@ var Get = sync.OnceValue(func() *shared.Broadcaster {
 		Tones:    tones.Get(),
 		Turns:    voice.Get(),
 		Busy:     busy,
-		Messages: message.Get(),
+		Messages: message.Shared(),
 		Client:   discovery.Client(),
 	})
 })

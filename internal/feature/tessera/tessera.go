@@ -37,7 +37,7 @@ func init() {
 
 var get = sync.OnceValue(func() *shared.Set {
 	home := homecontrol.Get()
-	alert, unalert := tesseraview.Alerter(message.Get())
+	alert, unalert := tesseraview.Alerter(message.Shared())
 	front := func() {
 		shell.Get().Close()
 		idle.Get().Wake()

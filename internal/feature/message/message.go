@@ -1,7 +1,6 @@
 package message
 
 import (
-	"bytes"
 	"fmt"
 	"image"
 	"image/draw"
@@ -32,6 +31,8 @@ var get = sync.OnceValue(func() *Messages {
 })
 
 func Get() *Messages { return get() }
+
+func Shared() *shared.Messages { return get().Messages }
 
 func init() { component.Register(sharedcomponent.Device, Get, sharedcomponent.Order(40)) }
 

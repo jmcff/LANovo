@@ -7,6 +7,7 @@ import (
 	"github.com/spf13/cobra"
 
 	sharedapps "github.com/ygelfand/libcountertop/pkg/display/apps"
+	sharedmessage "github.com/ygelfand/libcountertop/pkg/display/message"
 	"github.com/ygelfand/libcountertop/pkg/inference/asr"
 	harness "github.com/ygelfand/libcountertop/pkg/runtime/control"
 	"github.com/ygelfand/libcountertop/pkg/runtime/control/alarmcmd"
@@ -92,7 +93,7 @@ func showing() []*cobra.Command {
 	shared := displaycmd.Commands(displaycmd.Dependencies{
 		Panel:    display.Get,
 		GPU:      gpu.Get,
-		Messages: message.Get,
+		Messages: func() *sharedmessage.Messages { return message.Shared() },
 		Label:    config.Defaults().Visual.Label,
 		Shot:     layout.StateDir + "/screen.png",
 		Thumbs:   "/data/local/tmp/lanovo-thumbs",
